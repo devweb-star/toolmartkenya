@@ -1,0 +1,503 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solar Water Heaters | ToolMart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #007fff;
+      --primary-dark: #0066d6;
+      --primary-light: #66b3ff;
+      --secondary: #00a6ff;
+      --secondary-dark: #008fe0;
+      --accent: #7dd3fc;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --white: #ffffff;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
+    a { text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { background: rgba(255,255,255,0.96); border-bottom: 1px solid rgba(15,23,42,0.08); position: sticky; top: 0; z-index: 20; box-shadow: var(--shadow); }
+    .topbar { background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); padding: 10px 0; color: var(--white); font-size: 0.9rem; }
+    .topbar-inner, .nav-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .topbar .contact { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    .topbar i { color: var(--secondary); }
+    .nav-inner { padding: 16px 0; }
+    .logo { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.8rem; color: var(--primary); }
+    .logo-mark { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 12px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); font-size: 1.4rem; }
+    .nav-links { display: flex; gap: 28px; align-items: center; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: var(--dark); font-weight: 500; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* Dropdown Menu Styles */
+    .nav-links > li {
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      color: var(--dark);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .dropdown-toggle:hover {
+      color: var(--primary);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      min-width: 280px;
+      margin-top: 8px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 2000;
+      max-height: none; overflow: visible;
+    }
+
+    .nav-links > li:hover .dropdown-menu,
+    .nav-links > li:focus-within .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      padding: 0;
+      margin: 0;
+      display: block;
+    }
+
+    .dropdown-item > a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      color: var(--dark);
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .dropdown-item > a:hover {
+      background: rgba(0, 127, 255, 0.08);
+      color: var(--primary);
+      border-left-color: var(--primary);
+    }
+
+    .dropdown-item {
+      position: relative;
+    }
+
+    .submenu {
+      position: absolute;
+      left: 100%;
+      top: 0;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      min-width: 240px;
+      margin-left: 8px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-10px);
+      transition: all 0.3s ease;
+      z-index: 2001;
+      max-height: none; overflow: visible;
+    }
+
+    .dropdown-item:hover .submenu,
+    .dropdown-item:hover .dropdown-menu,
+    .dropdown-item:focus-within .submenu,
+    .dropdown-item:focus-within .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    .submenu-item {
+      padding: 0;
+      margin: 0;
+    }
+
+    .submenu-item > a {
+      display: block;
+      padding: 12px 16px;
+      color: var(--gray);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .submenu-item > a:hover {
+      background: rgba(0, 127, 255, 0.08);
+      color: var(--primary);
+      border-left-color: var(--primary);
+    }
+    .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 72px 0 52px; }
+    .eyebrow { display: inline-block; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.15); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 18px; }
+    h1 { margin: 0 0 12px; font-size: clamp(2rem, 5vw, 3.2rem); }
+    .hero p { margin: 0; max-width: 720px; opacity: 0.95; }
+    .catalog-wrap { padding: 48px 0 80px; }
+    .catalog-header { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; margin-bottom: 26px; }
+    .category-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,127,255,0.08); color: var(--primary); border: 1px solid rgba(0,127,255,0.15); border-radius: 999px; padding: 10px 16px; font-weight: 700; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; background: var(--primary); color: var(--white); border-radius: 12px; padding: 12px 18px; font-weight: 700; box-shadow: var(--shadow); }
+    .subcategory-tabs { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .subcategory-tab { padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(0,127,255,0.15); background: var(--white); color: var(--dark); font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
+    .subcategory-tab.active { background: var(--primary); border-color: var(--primary); color: var(--white); box-shadow: var(--shadow); }
+    .subcategory-block { margin-bottom: 28px; }
+    #productGrid { display: block; scroll-margin-top: 140px; }
+    .subcategory-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 0 0 16px; }
+    .subcategory-header h3 { margin: 0; color: var(--dark); font-size: 1.4rem; }
+    .subcategory-header h3 a { color: inherit; display: inline-block; transition: color 0.2s ease, transform 0.2s ease; }
+    .subcategory-header h3 a:hover, .subcategory-header h3 a:focus-visible, .subcategory-header h3 a:active, .subcategory-header h3 a.active { color: var(--primary); transform: translateX(4px); }
+    .subcategory-header span { font-size: 0.85rem; color: var(--gray); font-weight: 700; }
+    .product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+    .product-card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid rgba(15, 23, 42, 0.05); }
+    .product-image { position: relative; width: 100%; height: 240px; background: linear-gradient(135deg, #edf6ff 0%, #dbeafe 100%); overflow: hidden; }
+    .product-image img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .product-badge { position: absolute; top: 14px; left: 14px; z-index: 2; background: rgba(0,127,255,0.9); color: var(--white); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 10px; border-radius: 999px; }
+    .product-rating { position: absolute; right: 14px; bottom: 14px; padding: 7px 10px; border-radius: 999px; background: rgba(15,23,42,0.8); color: var(--white); font-size: 0.8rem; font-weight: 700; }
+    .product-body { padding: 18px 18px 20px; }
+    .product-body h3 { margin: 0 0 10px; font-size: 1.1rem; }
+    .product-body p { margin: 0 0 18px; color: var(--gray); font-size: 0.95rem; }
+    .product-price { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    .price { font-size: 1.35rem; font-weight: 800; color: var(--primary); }
+    .old-price { font-size: 0.8rem; color: var(--gray); text-decoration: line-through; margin-right: 8px; }
+    .empty { width: 100%; text-align: center; color: var(--gray); background: var(--white); border-radius: 16px; padding: 36px; box-shadow: var(--shadow); }
+    footer { background: var(--dark); color: rgba(255,255,255,0.8); padding: 30px 0; }
+    .footer-note { text-align: center; margin: 0; font-size: 0.95rem; }
+    @media (max-width: 640px) { .nav-inner, .topbar-inner { justify-content: center; } .nav-links { justify-content: center; flex-wrap: wrap; } }
+      @media (max-width: 640px) {
+      .nav-inner {
+        flex-wrap: wrap;
+        row-gap: 12px;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(15, 23, 42, 0.08);
+      }
+      .dropdown-menu {
+        max-width: calc(100vw - 28px);
+        max-height: 70vh;
+      }
+    }      @media (max-width: 640px) {
+      .dropdown-menu {
+        left: 50%;
+        width: min(360px, calc(100vw - 24px));
+        min-width: 0;
+        max-height: 70vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transform: translate(-50%, -10px);
+      }
+      .nav-links > li:hover .dropdown-menu,
+      .nav-links > li:focus-within .dropdown-menu {
+        transform: translate(-50%, 0);
+      }
+      .dropdown-item .submenu,
+      .dropdown-item > .dropdown-menu {
+        position: static;
+        display: block;
+        width: 100%;
+        min-width: 0;
+        max-height: none;
+        margin: 0;
+        padding: 0 0 8px 12px;
+        background: transparent;
+        border: 0;
+        border-left: 2px solid rgba(0, 127, 255, 0.18);
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        overflow: visible;
+      }
+      .dropdown-item > .dropdown-menu > li > a,
+      .submenu-item > a {
+        padding: 9px 12px;
+        white-space: normal;
+      }
+    }      @media (max-width: 640px) {
+      .dropdown-menu {
+        left: 12px;
+        right: 12px;
+        width: auto;
+        max-width: none;
+        min-width: 0;
+        transform: translateY(-10px);
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .nav-links > li:hover .dropdown-menu,
+      .nav-links > li:focus-within .dropdown-menu {
+        transform: translateY(0);
+      }
+      .dropdown-item > a {
+        width: 50%;
+        position: relative;
+        z-index: 1;
+      }
+      .dropdown-item .submenu,
+      .dropdown-item > .dropdown-menu {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 50%;
+        min-width: 0;
+        max-height: none;
+        margin: 0;
+        padding: 0;
+        background: var(--white);
+        border: 0;
+        border-left: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(8px);
+        overflow: visible;
+      }
+      .dropdown-item:hover .submenu,
+      .dropdown-item:focus-within .submenu,
+      .dropdown-item:hover > .dropdown-menu,
+      .dropdown-item:focus-within > .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+      }
+      .dropdown-item > .dropdown-menu > li > a,
+      .submenu-item > a {
+        width: 100%;
+        padding: 9px 12px;
+        white-space: normal;
+      }
+    }      @media (max-width: 640px) {
+      .dropdown-menu {
+        left: 12px;
+        right: 12px;
+        width: auto;
+        min-width: 0;
+        max-width: none;
+        max-height: 70vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transform: translateY(-10px);
+      }
+      .nav-links > li:hover .dropdown-menu,
+      .nav-links > li:focus-within .dropdown-menu {
+        transform: translateY(0);
+      }
+      .dropdown-item > a {
+        width: 100%;
+        position: relative;
+        z-index: 1;
+      }
+      .dropdown-item .submenu,
+      .dropdown-item > .dropdown-menu {
+        position: static;
+        display: block;
+        width: 100%;
+        min-width: 0;
+        max-height: none;
+        margin: 0;
+        padding: 0 0 8px 12px;
+        background: transparent;
+        border: 0;
+        border-left: 2px solid rgba(0, 127, 255, 0.18);
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        overflow: visible;
+      }
+      .dropdown-item > .dropdown-menu > li > a,
+      .submenu-item > a {
+        width: 100%;
+        padding: 9px 12px;
+        white-space: normal;
+      }
+    }  /* mobile-vertical-dropdown */    @media (max-width: 640px) {
+      .dropdown-menu {
+        left: 12px;
+        right: 12px;
+        width: auto;
+        min-width: 0;
+        max-width: none;
+        max-height: 70vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transform: translateY(-10px);
+      }
+      .nav-links > li:hover .dropdown-menu,
+      .nav-links > li:focus-within .dropdown-menu {
+        transform: translateY(0);
+      }
+      .dropdown-item > a {
+        width: 100%;
+        position: relative;
+        z-index: 1;
+      }
+      .dropdown-item .submenu,
+      .dropdown-item > .dropdown-menu {
+        position: static;
+        display: block;
+        width: 100%;
+        min-width: 0;
+        max-height: none;
+        margin: 0;
+        padding: 0 0 8px 12px;
+        background: transparent;
+        border: 0;
+        border-left: 2px solid rgba(0, 127, 255, 0.18);
+        border-radius: 0;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        overflow: visible;
+      }
+      .dropdown-item > .dropdown-menu > li > a,
+      .submenu-item > a {
+        width: 100%;
+        padding: 9px 12px;
+        white-space: normal;
+      }
+    }  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar"><div class="container topbar-inner"><div class="contact"><span><i class="fas fa-phone"></i> +254 720 803 295</span><span><i class="fas fa-envelope"></i> sales@toolmart.co.ke</span></div><span><i class="fas fa-clock"></i> Mon - Sat: 8:00 AM - 6:00 PM</span></div></div>
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo" aria-label="ToolMart home"><span class="logo-mark"><i class="fas fa-hard-hat"></i></span><span>Tool<span style="color: var(--secondary);">Mart</span></span></a>
+      <ul class="nav-links"><li><a href="../index.html">Home</a></li><li><a href="../products.html">Products</a></li><li><a href="../blog/index.html">Blog</a></li></ul>
+    </div>
+  </header>
+  <main>
+    <section class="hero"><div class="container"><div class="eyebrow">Category</div><h1 id="pageTitle">Solar Water Heaters</h1><p id="pageDescription">Efficient solar water heating systems for homes, businesses, and dependable hot-water supply.</p></div></section>
+    <section class="catalog-wrap"><div class="container"><div class="catalog-header"><div class="category-badge" id="categoryBadge"><i class="fas fa-sun"></i> Solar Water Heaters</div><a href="../index.html#categories" class="cta"><i class="fas fa-arrow-left"></i> Back to Categories</a></div><div id="subcategoryTabs" class="subcategory-tabs"></div><div id="productGrid" class="product-grid"></div></div></section>
+  </main>
+  <footer><div class="container"><p class="footer-note">&copy; 2026 ToolMart Solutions. All rights reserved.</p></div></footer>
+  <script>
+    const categoryKey = 'solar-water-heaters';
+    const productGrid = document.getElementById('productGrid');
+    const subcategoryTabs = document.getElementById('subcategoryTabs');
+    const pageTitle = document.getElementById('pageTitle');
+    const pageDescription = document.getElementById('pageDescription');
+    const categoryBadge = document.getElementById('categoryBadge');
+    let currentSubcategory = null;
+
+    function renderSubcategoryTabs(category) {
+      subcategoryTabs.innerHTML = '';
+
+      Object.keys(category.subcategories || {}).filter((subKey) => subKey !== 'products').forEach((subKey) => {
+        const sub = category.subcategories[subKey];
+        const tab = document.createElement('a');
+        tab.className = 'subcategory-tab' + (currentSubcategory === subKey ? ' active' : '');
+        tab.textContent = sub.name;
+        const categoryDirectory = categoryKey === 'cleaning' ? 'cleaning-equipment' : categoryKey === 'general' ? 'general-equipment' : categoryKey;
+        tab.href = `./${categoryDirectory}/${getSubcategoryFilename(categoryKey, subKey)}`;
+        subcategoryTabs.appendChild(tab);
+      });
+    }
+
+    function renderCategoryProducts(category) {
+      const entries = currentSubcategory
+        ? [[currentSubcategory, category.subcategories[currentSubcategory]]]
+        : Object.entries(category.subcategories || {}).filter(([subKey]) => subKey !== 'products');
+
+      const filtered = entries.filter(([, sub]) => sub && Array.isArray(sub.products));
+
+      if (!filtered.length) {
+        productGrid.innerHTML = '<div class="empty">No products available in this category yet.</div>';
+        return;
+      }
+
+      productGrid.innerHTML = filtered.map(([subKey, sub]) => `
+        <div class="subcategory-block">
+          <div class="subcategory-header">
+            <h3><a href="${categoryKey === 'cleaning' ? './cleaning-equipment' : categoryKey === 'general' ? './general-equipment' : './' + categoryKey}/${getSubcategoryFilename(categoryKey, subKey)}">${sub.name}</a></h3>
+            <span>${sub.products.length} products</span>
+          </div>
+          <div class="product-grid">
+            ${sub.products.map((product) => `
+              <article class="product-card">
+                <div class="product-image">${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}<div class="product-rating"><i class="fas fa-star"></i> ${product.rating || 0}</div><img src="${product.image && product.image.includes('assets/images/') ? '../assets/images/' + product.image.split('assets/images/')[1] : product.image}" alt="${product.name}"  /></div>
+                <div class="product-body"><h3>${product.name}</h3><p>${product.description}</p><div class="product-price"><div>${product.oldPrice ? `<span class="old-price">KSh ${Number(product.oldPrice).toLocaleString()}</span>` : ''}<span class="price">KSh ${Number(product.price).toLocaleString()}</span></div></div><a href="${product.url ? `./${categoryKey === 'cleaning' ? 'cleaning-equipment' : categoryKey}/${product.url}` : '#'}" class="cta"><i class="fas fa-arrow-right"></i> View Product</a></div>
+              </article>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function loadCategoryProducts() {
+      try {
+        const response = await fetch('../product.json');
+        if (!response.ok) throw new Error('Failed to load product.json');
+        const data = await response.json();
+        const category = data.categories && data.categories[categoryKey];
+        if (!category) { productGrid.innerHTML = '<div class="empty">No products found for this category.</div>'; return; }
+        pageTitle.textContent = category.name;
+        pageDescription.textContent = category.description;
+        categoryBadge.innerHTML = '<i class="fas fa-sun"></i> ' + category.name;
+        const firstSubcategory = Object.keys(category.subcategories || {}).find((subKey) => subKey !== 'products');
+        currentSubcategory = firstSubcategory || null;
+        renderSubcategoryTabs(category);
+        renderCategoryProducts(category);
+      } catch (error) { console.error(error); productGrid.innerHTML = '<div class="empty">Unable to load the category products.</div>'; }
+    }
+    loadCategoryProducts();
+
+            function getSubcategoryFilename(categoryKey, subKey) {
+      const subcategoryFiles = {
+        'water-pumps': { petrol: 'petrol-water-pumps.html', diesel: 'diesel-water-pumps.html', submersible: 'submersible-water-pumps.html', 'high-pressure': 'high-pressure-water-pumps.html', booster: 'booster-pumps.html', electric: 'electric-water-pumps.html', solar: 'solar-water-pumps.html' },
+        generators: { 'petrol-gen': 'petrol-generators.html', 'diesel-gen': 'diesel-generators.html', silent: 'silent-generators.html' },
+        landscaping: { 'brush-cutters': 'brush-cutters.html', 'earth-auger': 'earth-auger-machines.html', 'honda-brush': 'honda-brush-cutters.html', 'honda-lawn': 'honda-lawn-mowers.html', 'lawn-mowers': 'lawn-mowers.html', 'power-saw': 'power-saws.html' },
+        construction: { mixers: 'concrete-mixers.html', vibrator: 'concrete-vibrators.html', hoist: 'concrete-hoist.html', geotextile: 'geo-textiles-fabric.html', net: 'construction-net.html', membrane: 'app-membrane.html', compressor: 'air-compressors.html', welding: 'welding-machines.html', 'fold-ladder': 'foldable-ladders.html', 'alum-ladder': 'aluminium-ladders.html', boots: 'safety-boots.html', helmet: 'construction-helmets.html', 'shade-nets': 'car-shade-nets.html', 'welding-gen': 'welding-generators.html' },
+        agricultural: { 'chaff-cutters': 'chaff-cutters.html', silage: 'silage-choppers.html', milking: 'milking-machines.html', tractor: 'walking-tractors.html', baler: 'manual-hay-balers.html', maize: 'maize-shellers.html', sprayer: 'motorised-knapsack-sprayer.html', shade: 'shade-nets.html' },
+        'food-processing': { posho: 'posho-mills.html', 'oil-press': 'oil-press-machines.html', pellet: 'pellet-making-machine.html', peanut: 'peanut-butter-making-machine.html', 'bone-saw': 'bone-saw-machine.html', mincer: 'meat-mincer.html', spice: 'spice-grinder.html', juicer: 'commercial-juicers.html', blender: 'commercial-blenders.html', dough: 'dough-mixers.html', popcorn: 'popcorn-machine.html' },
+        'power-tools': { 'heat-gun': 'heat-gun.html', 'angle-grinder': 'angle-grinders.html', 'cordless-drill': 'cordless-drill.html', blower: 'blowers.html', 'demolition-hammer': 'demolition-hammers.html', 'circular-saw': 'circular-saw.html', 'welding-grinder': 'welding-grinders.html', 'wall-chaser': 'wall-chaser-machine.html', jigsaw: 'jig-saw-machines.html' },
+        cleaning: { vacuum: 'vacuum-cleaners.html', carpet: 'carpet-cleaning-machines.html', sofa: 'sofa-cleaning-machines.html', 'car-wash': 'car-wash-machines.html', floor: 'floor-scrubbing-machines.html' },
+        general: { 'heat-press': 'heat-press-machine.html', vinyl: 'vinyl-plotter-machine.html' }
+      };
+      return (subcategoryFiles[categoryKey] && subcategoryFiles[categoryKey][subKey]) || `${subKey}.html`;
+    }
+    </script>
+<script src="../assets/category-menu.js"></script>
+</body>
+</html>
+
+
+

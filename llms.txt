@@ -1,0 +1,32 @@
+# ToolMart Solutions
+
+> ToolMart Solutions is a Kenya-focused catalog of construction, building, agricultural and commercial equipment. Product listings include descriptions, specifications, prices in Kenyan shillings (KSh), images and enquiry links.
+
+## Main pages
+
+- [Home](https://toolmart.co.ke/): Main site and featured equipment.
+- [Product catalog](https://toolmart.co.ke/products.html): Catalog across product categories.
+- [Categories](https://toolmart.co.ke/categories/categories.html): Category directory.
+- [Blog](https://toolmart.co.ke/blog/): Equipment guides and articles.
+
+## Category pages
+
+- [Agricultural equipment](https://toolmart.co.ke/categories/agricultural.html)
+- [Automotive equipment](https://toolmart.co.ke/categories/automotive.html)
+- [Cleaning equipment](https://toolmart.co.ke/categories/cleaning-equipment.html)
+- [Construction equipment](https://toolmart.co.ke/categories/construction.html)
+- [Food processing equipment](https://toolmart.co.ke/categories/food-processing.html)
+- [Generators](https://toolmart.co.ke/categories/generators.html)
+- [Landscaping equipment](https://toolmart.co.ke/categories/landscaping.html)
+- [Power tools](https://toolmart.co.ke/categories/power-tools.html)
+- [Printing equipment](https://toolmart.co.ke/categories/printing.html)
+- [Solar water heaters](https://toolmart.co.ke/categories/solar-water-heaters.html)
+- [Water pumps](https://toolmart.co.ke/categories/water-pumps.html)
+- [Welding equipment](https://toolmart.co.ke/categories/welding.html)
+
+## Data and accuracy
+
+- [Structured product catalog](https://toolmart.co.ke/product.json) contains product and category data.
+- Product prices and availability may change; confirm them with ToolMart before relying on a listing.
+- Product enquiries use the contact number published on the site: +254 720 803 295.
+- [XML sitemap](https://toolmart.co.ke/sitemap.xml) lists published HTML pages.

@@ -1,0 +1,11 @@
+/* SITE */
+Name: ToolMart Solutions
+Website: https://toolmart.co.ke
+Region: Kenya
+Focus: Construction, building, agricultural and commercial equipment
+Contact: +254 720 803 295
+
+/* TECHNICAL */
+Built with: HTML, CSS and JavaScript
+Catalog data: product.json
+Sitemap: sitemap.xml

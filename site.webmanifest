@@ -1,0 +1,10 @@
+{
+	"name": "ToolMart Solutions",
+	"short_name": "ToolMart",
+	"description": "Construction, building, agricultural and industrial equipment in Kenya.",
+	"start_url": "/",
+	"scope": "/",
+	"display": "browser",
+	"background_color": "#f8fafc",
+	"theme_color": "#007fff"
+}
